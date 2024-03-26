@@ -8,7 +8,7 @@ import {
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 
-export const WelcomeScreen = () => {
+export const WelcomeScreen = ({ navigation }) => {
 	return (
 		<ImageBackground
 			source={require('../assets/images/splash1.png')}
@@ -28,11 +28,13 @@ export const WelcomeScreen = () => {
 				<Text style={screenStyles.secondaryText}>
 					The best grain, the finest roast, the powerful flavor.
 				</Text>
-				<TouchableOpacity style={screenStyles.startBtn}>
+				<TouchableOpacity
+					style={screenStyles.startBtn}
+					onPress={() => navigation.navigate('Home')}
+				>
 					<Text style={screenStyles.btnText}>Get Started</Text>
 				</TouchableOpacity>
 			</View>
-			<StatusBar style='light' />
 		</ImageBackground>
 	);
 };
